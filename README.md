@@ -422,12 +422,19 @@ sudo systemctl disable docker
 
 
 ### Setup on server
+
+Clone this repo to chosen directory
+```
+mkdir geoserver_config && cd geoserver_config
+git clone https://github.com/timhitchins/docker-geoserver.git
+```
+
 Create the directories that will be mapped to the pg11 and geoserver data containers.  
 Keep in mind that these will need to be updated in the `docker-compose.yml` file as well.
 
 ```
-mkdir -p ~/geoserver_data && chmod -R a+rwx ~/geoserver_data
-mkdir -p ~/pg_data && chmod -R a+rwx ~/pg_data
+mkdir -p ~/geoserver_config/geoserver_data && chmod -R a+rwx ~/geoserver_data
+mkdir -p ~/geoserver_config/pg_data && chmod -R a+rwx ~/pg_data
 ```
 
 Assumming that the docker-compose has been updated to map to the new dirs, build and run from root:
