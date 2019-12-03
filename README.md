@@ -304,7 +304,9 @@ docker run -d -v $HOME/geoserver_data:/opt/geoserver/data_dir kartoza/geoserver
 * Admire Nyakudya (admire@kartoza.com)
 * Gavin Fleming (gavin@kartoza.com)
 
-===============================================================================================
+=====================================================================
+PERSONALIZED INSTALL INSTRUCTIONS
+=====================================================================
 
 ## Setup for server
 
@@ -433,14 +435,18 @@ Create the directories that will be mapped to the pg11 and geoserver data contai
 Keep in mind that these will need to be updated in the `docker-compose.yml` file as well.
 
 ```
-mkdir -p ~/geoserver_config/geoserver_data && chmod -R a+rwx ~/geoserver_data
-mkdir -p ~/geoserver_config/pg_data && chmod -R a+rwx ~/pg_data
+mkdir -p ~/geoserver_config/geoserver_data && chmod -R a+rwx ~/geoserver_config/geoserver_data
+mkdir -p ~/geoserver_config/pg_data && chmod -R a+rwx ~/geoserver_config/pg_data
 ```
+
 Change the local pass/user files.
 The password is set in `geoserver.env` as the var `GEOSERVER_ADMIN_PASSWORD`.
 CHANGE THIS PASSWORD FROM THE DEFAULT IN THIS FILE!
+```
+nano docker-geoserver/geoserver.env
+```
 
-Assumming that the docker-compose has been updated to map to the new dirs, build and run from root:
+Assumming that the `docker-compose.yml` has been updated to map to the new dirs, build and run from root:
 
 ```
 cd ~/geoserver_config/docker-geoserver
