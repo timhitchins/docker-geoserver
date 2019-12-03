@@ -436,16 +436,19 @@ Keep in mind that these will need to be updated in the `docker-compose.yml` file
 mkdir -p ~/geoserver_config/geoserver_data && chmod -R a+rwx ~/geoserver_data
 mkdir -p ~/geoserver_config/pg_data && chmod -R a+rwx ~/pg_data
 ```
+Change the local pass/user files.
+The password is set in `geoserver.env` as the var `GEOSERVER_ADMIN_PASSWORD`.
+CHANGE THIS PASSWORD FROM THE DEFAULT IN THIS FILE!
 
 Assumming that the docker-compose has been updated to map to the new dirs, build and run from root:
 
 ```
+cd ~/geoserver_config/docker-geoserver
 docker-compose up
 ```
 
 The go to http://localhost:8600/geoserver and sign-in with user and password.
-The password is set in `geoserver.env` as the var `GEOSERVER_ADMIN_PASSWORD`.
-CHANGE THIS PASSWORD FROM THE DEFAULT IN THIS FILE!
+
 
 ## Adding geotiffs via REST API
 In progress...
