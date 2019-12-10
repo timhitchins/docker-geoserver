@@ -423,9 +423,9 @@ sudo systemctl disable docker
 ```
 
 
-### Setup on server
+### Setup Geoserver
 
-Clone this repo to chosen directory
+Clone this repo to geoserver_config directory
 ```
 mkdir geoserver_config && cd geoserver_config
 git clone https://github.com/timhitchins/docker-geoserver.git
@@ -443,7 +443,7 @@ Change the local pass/user files.
 The password is set in `geoserver.env` as the var `GEOSERVER_ADMIN_PASSWORD`.
 CHANGE THIS PASSWORD FROM THE DEFAULT IN THIS FILE!
 ```
-nano docker-geoserver/geoserver.env
+nano ~/geoserver_config/docker-geoserver/docker-env/geoserver.env
 ```
 
 Assumming that the `docker-compose.yml` has been updated to map to the new dirs, build and run from root:
@@ -453,8 +453,31 @@ cd ~/geoserver_config/docker-geoserver
 docker-compose up
 ```
 
-The go to http://localhost:8600/geoserver and sign-in with user and password.
+The go to http://<hostname>:8600/geoserver and sign-in with user and password.
 
+
+## Setup Rstudio
+
+Clone the repo with the modified build file from Rocker
+```
+mkdir  ~/r_config && cd ~/r_config
+git clone https://github.com/timhitchins/docker-rstudio-geoserver.git
+```
+
+```
+cd ~/r_config/docker-rstudio-geoserver
+docker build -t 
+```
+
+Create the rscripts directory that will contain the geoserver-pipeline rscripts.
+```
+mkdir -p ~/r_config/r_scripts && chmod -R a+rwx ~/rstudio/r_scripts
+git clone https://github.com/timhitchins/geoserver-pipeline.git
+```
+
+Clone the docker-rstudio-geospatial in the rstudio_config
+
+## Run the docker container
 
 ## Adding geotiffs via REST API
 In progress...
